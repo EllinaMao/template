@@ -1,5 +1,5 @@
 import React from 'react';
-// import './styles.css';
+import '../assets/css/ProductCard.css';
 
 const ProductCard = ({ product, onAdd }) => {
   return (
@@ -20,4 +20,4 @@ const ProductCard = ({ product, onAdd }) => {
 
 
 
-export default ShopItem;
+export default ProductCard;

@@ -1,12 +1,11 @@
 import ProductCard from "./ProductCard";
-
-const ProductList = ({ products, handleAddToCart }) => {
+import "../assets/css/ProductList.css";
+const ProductList = ({ products, onAdd }) => {
   return (
     <div className="shop-catalog">
-      <h2>Каталог</h2>
       <div className="catalog-grid">
         {products.map((p) => (
-          <ProductCard key={p.id} product={p} onAdd={onAddToCart} />
+          <ProductCard key={p.id} product={p} onAdd={onAdd} />
         ))}
       </div>
     </div>

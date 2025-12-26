@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
-import ShoppingCart from "./ShoppingCart";
+import ShopCart from "./ShopCart";
 import ProductList from "./ProductList";
-
-export default function Shop() { 
-    
-  const [products, setProducts] = useState([]); 
+import "../assets/css/Shop.css";
+export default function Shop() {
+  const [products, setProducts] = useState([]);
   const [cartItems, setCartItems] = useState([]);
 
   useEffect(() => {
     (async () => {
       try {
-        const responsePromise = await fetch('https://fakestoreapi.com/products');
+        const responsePromise = await fetch(
+          "https://fakestoreapi.com/products"
+        );
         const response = await responsePromise.json();
         setProducts(response);
       } catch (error) {
@@ -33,13 +34,16 @@ export default function Shop() {
     });
   };
 
-return (
-    <div className="shop-container">
-      <ProductList products={products} onAddToCart={handleAddToCart} />
-      
-      <div className="shop-sidebar">
-         <ShoppingCart availableProducts={cartItems} />
+  return (
+    <>
+      <header className="shop-header"> Shop Component </header>
+      <div className="shop-container">
+        <ProductList products={products} onAdd={handleAddToCart} />
+
+        <div className="shop-sidebar">
+          <ShopCart availableProducts={cartItems} />
+        </div>
       </div>
-    </div>
+    </>
   );
-}   
+}

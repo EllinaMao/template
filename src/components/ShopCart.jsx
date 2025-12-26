@@ -1,6 +1,7 @@
 import React, { useState, useMemo, useEffect } from "react";
+import "../assets/css/ShopCard.css";
 
-const ShoppingCart = ({ availableProducts }) => {
+const ShopCart = ({ availableProducts }) => {
   // Состояние корзины
   const [cart, setCart] = useState(availableProducts || []);
 
@@ -71,14 +72,12 @@ const ShoppingCart = ({ availableProducts }) => {
           {filteredProducts.map((product) => (
             <li key={product.id} className="cart-item">
               <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "0.9rem", fontWeight: "bold" }}>
+                <div>
                   {product.title.length > 20
                     ? product.title.substring(0, 20) + "..."
                     : product.title}
                 </div>
-                <div
-                  style={{ fontSize: "0.8rem", color: "var(--text-secondary)" }}
-                >
+                <div>
                   ${product.price} x {product.quantity}
                 </div>
               </div>
@@ -92,7 +91,7 @@ const ShoppingCart = ({ availableProducts }) => {
                   className="btn-remove"
                   onClick={() => removeProduct(product.id)}
                 >
-                  ✕
+                  X
                 </button>
               </div>
             </li>
@@ -108,4 +107,4 @@ const ShoppingCart = ({ availableProducts }) => {
   );
 };
 
-export default ShoppingCart;
+export default ShopCart;
