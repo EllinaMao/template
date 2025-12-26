@@ -1,0 +1,183 @@
+:root {
+  --primary-color: #2e4c7d;
+  --secondary-color: #1d1348;
+  --accent-color: #fdd835;
+  --text-color: #1e1e1e;
+  --bg-color: #e4f5ff;
+  --card-bg: #ffffff;
+
+  /* Кнопки */
+  --btn-bg: #ffffff;
+  --btn-border: #cccccc;
+  --btn-hover-bg: #f0f0f0;
+  
+  --active-btn-bg: #2e4c7d;
+  --active-btn-color: #ffffff;
+  --active-btn-border: #1d1348;
+  --active-btn-hover-bg: #1d1348;
+
+  /* Дополнительные акценты */
+  --bg-accent: #ff9800;
+  --bg-accent-hover: #e68900;
+  --text-main: #ffffff;
+  --text-secondary: #a5a5a5;
+  --text-result: #4caf50; /* Зеленый */
+  --color-danger: #e74c3c; /* Красный */
+  --color-danger-hover: #c0392b;
+  
+  /* Размеры и отступы */
+  --spacing-base: 20px;
+  --spacing-gap: 12px;
+  --radius: 12px;
+  --radius-small: 6px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Сброс и База --- */
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* --- Layout (Shop) --- */
+.shop-container {
+  display: flex;
+  gap: 40px;
+  padding: var(--spacing-base);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.shop-catalog {
+  flex: 1;
+}
+
+.shop-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+/* --- Сетка товаров (ProductList) --- */
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--spacing-base);
+}
+
+/* --- Карточка товара (ProductCard) --- */
+.product-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--btn-border);
+  border-radius: var(--radius);
+  padding: var(--spacing-base);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.product-image {
+  height: 150px; /* Чуть увеличил для красоты */
+  width: 100%;
+  object-fit: contain;
+  margin-bottom: var(--spacing-gap);
+}
+
+.product-title {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: 600;
+  /* Обрезаем длинный текст троеточием */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-category {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+  text-transform: capitalize;
+  background-color: #f0f0f0;
+  padding: 2px 8px;
+  border-radius: 12px;
+}
+
+.product-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+  margin-top: auto; /* Прижимает цену и кнопку к низу */
+  margin-bottom: 10px;
+}
+
+/* --- Кнопки --- */
+.btn-primary {
+  background-color: var(--text-result); /* Зеленый цвет для покупки */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.9);
+}
+
+/* --- Корзина (ShoppingCart) --- */
+.cart-container {
+  background-color: var(--card-bg);
+  padding: var(--spacing-base);
+  border-radius: var(--radius);
+  border: 1px solid var(--btn-border);
+  box-shadow: var(--shadow);
+  position: sticky; /* Корзина будет "прилипать" при скролле */
+  top: 20px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.cart-controls button {
+  margin: 0 5px;
+  padding: 2px 8px;
+  cursor: pointer;
+  border: 1px solid var(--btn-border);
+  background: var(--btn-bg);
+  border-radius: 4px;
+}
+
+.cart-controls button.btn-remove {
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+.cart-controls button.btn-remove:hover {
+  background-color: var(--color-danger);
+  color: white;
+}
