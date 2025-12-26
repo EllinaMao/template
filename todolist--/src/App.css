@@ -1,0 +1,35 @@
+:root {
+  --primary-color: #2e4c7d;
+  --secondary-color: #1d1348;
+  --accent-color: #fdd835;
+  --text-color: #1e1e1e;
+  --bg-color: #e4f5ff;
+  --card-bg: #d2f6ff;
+
+  --btn-bg: #ffffff;
+  --btn-border: #cccccc;
+  --btn-hover-bg: #f0f0f0;
+  
+  --active-btn-bg: #2e4c7d;
+  --active-btn-color: #ffffff;
+  --active-btn-border: #1d1348;
+  --active-btn-hover-bg: #1d1348;
+
+  --bg-accent: #ff9800;
+  --bg-accent-hover: #e68900;
+  --text-main: #ffffff;
+  --text-secondary: #a5a5a5;
+  --text-result: #4caf50;
+  --color-danger: #e74c3c;
+  --color-danger-hover: #c0392b;
+  
+  --spacing-base: 20px;
+  --spacing-gap: 12px;
+  --radius: 12px;
+  --radius-small: 6px;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.15);
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
